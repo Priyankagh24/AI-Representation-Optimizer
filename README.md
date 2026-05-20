@@ -1,6 +1,6 @@
 # AI Representation Optimizer
 
-**Hackathon:** Kasparro Commerce Hackathon — Track 5 (Advanced): AI Representation Optimizer  
+**Hackathon:** Kasparro Agentic Commerce Hackathon — Track 5 (Advanced): AI Representation Optimizer  
 **Participant:** Solo submission
 
 ---
@@ -11,7 +11,7 @@ AI Representation Optimizer is a merchant-facing diagnostic tool that helps Shop
 
 When an AI agent recommends products, it pulls from store data: descriptions, policies, reviews, FAQs. If that data is incomplete, ambiguous, or contradictory, the AI skips the merchant or misrepresents them. This tool makes that problem visible and actionable.
 
-**Live Demo:** [Deployed on Replit]
+
 
 ---
 
@@ -181,7 +181,7 @@ All product decisions, architecture choices, and implementation were made and ex
 
 ## Demo Video
 
-[YouTube/Drive link — 3-5 minute screen recording with narration]
+Drive link — https://drive.google.com/file/d/1XC6EtcjjKAYjKURSc-Xqoo8J3nSGd8HY/view?usp=drive_link
 
 ---
 
