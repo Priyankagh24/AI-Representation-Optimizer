@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "AI Representation Optimizer"
+version = "1.0.0"
+id = "artifacts/ai-rep-optimizer"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21919
+
+[services.development]
+run = "pnpm --filter @workspace/ai-rep-optimizer run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/ai-rep-optimizer", "run", "build" ]
+publicDir = "artifacts/ai-rep-optimizer/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21919"
+BASE_PATH = "/"
