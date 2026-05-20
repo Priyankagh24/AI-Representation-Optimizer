@@ -125,8 +125,60 @@ All product decisions, architecture choices, and implementation were made and ex
 
 ## Screenshots
 
-[Include screenshots of the audit form, results dashboard, and sample report]
 
+## Screenshots
+
+### Landing Page
+![Landing Page](./screenshots/landing-page.png)
+
+---
+
+### Audit Form Flow
+![Audit Form 1](./screenshots/audit-form-1.png)
+
+![Audit Form 2](./screenshots/audit-form-2.png)
+
+![Audit Form 3](./screenshots/audit-form-3.png)
+
+---
+
+### AI Audit Analysis
+![Audit Analysis 1](./screenshots/audit-analysis-1.png)
+
+![Audit Analysis 2](./screenshots/audit-analysis-2.png)
+
+![Audit Analysis 3](./screenshots/audit-analysis-3.png)
+
+![Audit Analysis 4](./screenshots/audit-analysis-4.png)
+
+![Audit Analysis 5](./screenshots/audit-analysis-5.png)
+
+![Audit Analysis 6](./screenshots/audit-analysis-6.png)
+
+![Audit Analysis 7](./screenshots/audit-analysis-7.png)
+
+![Audit Analysis 8](./screenshots/audit-analysis-8.png)
+
+![Audit Analysis 9](./screenshots/audit-analysis-9.png)
+
+![Audit Analysis 10](./screenshots/audit-analysis-10.png)
+
+![Audit Analysis 11](./screenshots/audit-analysis-11.png)
+
+---
+
+### Ask Audit Feature
+![Ask Audit](./screenshots/ask-audit.png)
+
+---
+
+### Dashboard
+![Dashboard](./screenshots/dashboard.png)
+
+---
+
+### Audit Comparison
+![Audit Comparison](./screenshots/2audit-comparison.png)
 ---
 
 ## Demo Video
