@@ -280,10 +280,34 @@ function QuerySimulator({ analysisId }: { analysisId: number }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ query: question }),
       });
+      if (!r.ok) throw new Error("backend failed");
       const data = await r.json();
       setResult(data);
     } catch {
-      setResult({ error: true });
+      // Fallback: call Anthropic API directly from frontend
+      try {
+        const storeContext = `Store: ${analysis?.storeName ?? "Unknown"}\nCategory: ${analysis?.category ?? "General"}\nDescription: ${analysis?.storeDescription?.slice(0, 800) ?? "None"}\nProducts: ${analysis?.productSamples?.slice(0, 600) ?? "None"}\nShipping: ${analysis?.shippingPolicy?.slice(0, 200) ?? "None"}\nReturns: ${analysis?.returnPolicy?.slice(0, 200) ?? "None"}`;
+
+        const resp = await fetch("https://api.anthropic.com/v1/messages", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            model: "claude-sonnet-4-20250514",
+            max_tokens: 1000,
+            messages: [{
+              role: "user",
+              content: `You are simulating how an AI shopping agent would respond to a customer query based ONLY on the store data below.\n\nSTORE DATA:\n${storeContext}\n\nCUSTOMER QUERY: "${question}"\n\nRespond ONLY with valid JSON, no markdown:\n{"wouldRecommend": true, "confidence": "high", "agentResponse": "2-3 sentence response the AI agent would give", "whyOrWhyNot": "1-2 sentences explaining why", "missingSignals": ["signal1"]}`
+            }]
+          })
+        });
+        const raw = await resp.json();
+        const text = raw.content?.[0]?.text ?? "{}";
+        const jsonMatch = text.match(/\{[\s\S]*\}/);
+        const parsed = JSON.parse(jsonMatch ? jsonMatch[0] : text);
+        setResult({ query: question, ...parsed });
+      } catch {
+        setResult({ error: true });
+      }
     } finally {
       setLoading(false);
     }
